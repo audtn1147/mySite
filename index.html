@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>환영합니다</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+      background: linear-gradient(135deg, #e0eafc, #cfdef3);
+      color: #222;
+    }
+    .card {
+      width: 100%;
+      max-width: 420px;
+      padding: 32px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    h1 { margin-top: 0; font-size: 1.5rem; }
+    form { display: flex; gap: 8px; }
+    input {
+      flex: 1;
+      min-width: 0;
+      padding: 12px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      padding: 12px 20px;
+      font-size: 1rem;
+      color: #fff;
+      background: #4a6cf7;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover { background: #3754d6; }
+    #greeting {
+      margin-top: 24px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #4a6cf7;
+      min-height: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>이름을 입력하세요</h1>
+    <form id="nameForm">
+      <input type="text" id="nameInput" placeholder="이름" required autofocus>
+      <button type="submit">확인</button>
+    </form>
+    <p id="greeting"></p>
+  </div>
+
+  <script>
+    document.getElementById('nameForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('nameInput').value.trim();
+      if (!name) return;
+      document.getElementById('greeting').textContent = name + ' 님 어서오세요';
+    });
+  </script>
+</body>
+</html>
